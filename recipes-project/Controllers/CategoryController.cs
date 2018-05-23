@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -42,7 +42,7 @@ namespace recipes_project.Controllers
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
-            await _categoryRepo.DeleteAsync("ss",id);
+            await _categoryRepo.DeleteAsync(id);
             return Ok();
         }
     }
