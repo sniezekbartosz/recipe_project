@@ -1,0 +1,52 @@
+.h3-login-title {
+    color: #bbb;
+    padding: 20px;
+    text-align: center;
+    /* margin-top: 50px; */
+}
+
+.login-form {
+    text-align: center;
+}
+
+.login-form > a:first {
+    font-size: .5rem;
+}
+
+.login-form > a:last-child {
+    border: 1px solid gainsboro;
+    background-color: white;
+    color: #7b7b7b;
+    font-size: .9rem;
+}
+
+.login-form > p {
+    color: grey;
+    margin:0;
+}
+
+.u8-rem {
+    font-size: .8rem;
+    padding: 5px;
+}
+
+.login-button {
+    margin-bottom: 5px;
+}
+
+.btn-login-color {
+    background-color: #1ab394;
+    border: 1px soild #1ab394;
+    color: white;
+    border-radius: 0;
+    transition: .5s;
+}
+
+.btn-login-color:hover {
+    background-color: #18a689;
+}
+
+.login-wrapper {
+    width: 100%;
+    margin-top: 104px;
+}

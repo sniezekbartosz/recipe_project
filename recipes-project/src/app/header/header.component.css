@@ -1,0 +1,49 @@
+.sidenav-items > li {
+    border-radius: 0;
+    background-color: rgba(0,0,0,0);
+    font-family: 'Montserrat', sans-serif;
+    color: #e2e2e2;
+    border: 0;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .3s;
+    padding: 0;
+    margin: 0;
+}
+
+.sidenav-items > li > a {
+    color: white;
+    width: 100%;
+    padding: 10px;
+    padding-left: 35px;
+    display: inline-block;
+    padding-right: 40px;
+    font-weight: bold;
+}
+
+.sidenav-items > li:hover > a {
+    background-color: #e08c8c;
+    color: white;
+
+}
+
+.sidenav-items > li > a > i {
+    padding-right: 10px;
+    vertical-align: middle;
+    font-size: 1.2rem;
+}
+
+.list-group-item:last-child {
+    margin-bottom: 1rem;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.8rem !important;
+    color: #ffffff5e !important;
+}
+
+.aditional-info {
+    font-size: 0.78rem;
+    font-weight: 400;
+}

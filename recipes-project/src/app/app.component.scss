@@ -1,0 +1,105 @@
+$main-color: #efa7a7;
+$main-color-border: #efa7a7;
+
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f3f3f4;
+}
+
+.example-radio-group {
+    display: block;
+    border: 1px solid #555;
+    margin: 20px;
+    padding: 10px;
+}
+
+.sidenav {
+    background: $main-color;
+    color: white;
+    width: 250px;
+}
+
+/* h1 {
+      text-align: center;
+      background-color: #243747;
+      padding-top:20px;
+      padding-bottom: 20px;
+      font-family: 'Gloria Hallelujah', cursive;
+      margin:0;
+  } */
+
+button:focus {
+    outline-style: none;
+}
+
+.btn-side-container {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 20px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding-right: 20px;
+}
+
+.custom-toolbar-color {
+    background: #fff;
+    color: $main-color;
+    border-bottom: 1px solid #926161;
+}
+
+
+.custom-toolbar-color > a {
+    display: flex;
+    align-items: center;
+    /* padding: 10px; */
+    padding: 6px;
+    color: #fff;
+    background-color: $main-color;
+    border: 1px solid $main-color-border;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.menu-open {
+    background-color: white;
+    color: $main-color;
+}
+
+.custom-toolbar-color {
+    /* position: fixed; */
+    position: fixed;
+    z-index: 1000;
+}
+
+.custom-toolbar-color > a {
+    float: right;
+}
+
+.welcome-logged {
+    font-size: 16px;
+    width:100%;
+    text-align: center;
+}
+
+.margin-navbar-wrapper {
+    margin-top: 64px;
+    height: calc(100% - 64px);
+}
+
+.navbar-wrapper {
+    position: fixed;
+    background-color: red;
+    padding: 5px;
+}
+
+.navbar-inner {
+    position: absolute;
+    left:0;
+    right: 0;
+    background-color: green;
+}

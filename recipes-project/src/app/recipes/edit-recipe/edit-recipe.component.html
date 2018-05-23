@@ -1,0 +1,90 @@
+<div class="container-wrapper">
+  <div class="container">
+    <div class="center-horizontal">
+      <mat-card>
+        <mat-card-title>
+          <span *ngIf="!editMode;else other">Nowy przepis:</span>
+          <ng-template #other>
+            Edycja:
+          </ng-template>
+          {{recipeForm.get('title') .value}}
+        </mat-card-title>
+
+        <mat-card-content>
+          <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+            <table>
+
+              <tr>
+                <td colspan="2">
+                  <mat-form-field class="full-width">
+                    <input matInput #title placeholder="Nazwa" minlength="6" formControlName="title">
+                    <mat-hint align="end">{{title.value.length}} / 100</mat-hint>
+                  </mat-form-field>
+                </td>
+              </tr>
+              
+              <div formArrayName="ingredients">
+                <tr *ngFor="let ingredient of ingredientData.controls; let i = index" [formGroupName]="i">
+                  <td>
+                    <mat-form-field>
+                      <input matInput placeholder="Składnik" formControlName="name">
+                    </mat-form-field>
+                    <button type="button" color="warn" mat-raised-button (click)="onDeleteIngredient(i)">Usuń</button>
+                  </td>
+                </tr>
+              </div>
+
+              <tr>
+                <td>
+                  <button type="button" mat-raised-button (click)="onAddIngredient()">Dodaj składnik</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="2">
+                  <mat-form-field class="full-width">
+                    <textarea #desc matInput placeholder="Sposób przygotowania" formControlName="description"></textarea>
+                    <mat-hint align="end">{{desc.value.length}} / 2500</mat-hint>
+                  </mat-form-field>
+                </td>
+              </tr>
+
+              <!-- <tr>
+                      <td colspan="2">
+                        <mat-form-field class="full-width">
+                          <mat-select placeholder="category" formControlName="categories">
+                            <mat-option value="option">option</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </td>
+                    </tr> -->
+              <tr>
+                <td>
+                  <mat-form-field>
+                    <mat-select [(value)]="catName" formControlName="categoryId" placeholder="Wybierz kategorią">
+                      <mat-option *ngFor="let cat of categories" [value]="cat.categoryId">
+                        {{ cat.name }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </td>
+              </tr>
+
+
+              <tr>
+                <td colspan="2" class="text-center">
+                  <button [color]="'clear'" mat-raised-button color="accent" (click)="check()">Wyczyść formularz</button>
+                  <button mat-raised-button [color]="'success'" [disabled]="!recipeForm.valid">{{submitButton}}</button>
+                </td>
+              </tr>
+
+            </table>
+          </form>
+
+        </mat-card-content>
+
+      </mat-card>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,30 @@
+$register-button-color: rgb(199, 57, 57);
+$register-button-hover: rgb(163, 47, 47);
+
+.registration-wrapper {
+    width: 100%;
+    margin-top: 104px;
+}
+
+.h3-login-title {
+    color: #bbb;
+    padding: 20px;
+    text-align: center;
+}
+
+.btn-register {
+    background-color: $register-button-color;
+    border: 1px soild $register-button-color;
+    color: white;
+    border-radius: 0;
+    transition: .5s;
+}
+
+.btn-register:hover {
+    background-color: $register-button-hover;
+}
+
+#registerForm {
+    text-align: center;
+    margin-bottom: 15px;
+}

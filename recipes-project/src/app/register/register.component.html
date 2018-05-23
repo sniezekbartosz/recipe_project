@@ -1,0 +1,47 @@
+<div class="registration-wrapper">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-5">
+        <h3 class="h3-login-title">Rejestracja</h3>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" id="registerForm">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" formControlName="username" placeholder="Nazwa użytkownika" class="form-control" [ngClass]="{'is-valid': registerForm.controls['username'].errors === null, 
+              'is-invalid': registerForm.controls['username'].errors}">
+              <div *ngIf="registerForm.controls['username'].hasError('required')" class="invalid-feedback">
+                Pole wymagane
+              </div>
+              <div *ngIf="registerForm.controls['username'].hasError('minlength') || registerForm.controls['username'].hasError('maxlength')"
+                class="invalid-feedback">
+                Nazwa użytkownika musi zawierać od 6 do 30 znaków.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group">
+              <input type="email" [ngClass]="{'is-valid': !registerForm.controls['email'].errors, 'is-invalid': registerForm.controls['email'].errors}"
+                formControlName="email" placeholder="Adres email" class="form-control">
+              <div *ngIf="registerForm.controls['email'].errors" class="invalid-feedback">
+                Proszę podać poprawny adres email.
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="form-group">
+            <div class="input-group">
+              <input type="password" formControlName="password" placeholder="Hasło" class="form-control" [ngClass]="{'is-valid': !registerForm.controls['password'].errors, 'is-invalid': registerForm.controls['password'].errors }">
+              <div *ngIf="registerForm.controls['password'].errors" class="invalid-feedback">
+                Hasło musi składać się z conajmniej 6 znaków.
+              </div>
+            </div>
+
+          </div>
+          <button class="btn btn-register" type="submit">Zarejestruj</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

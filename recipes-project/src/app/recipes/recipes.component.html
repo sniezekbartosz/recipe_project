@@ -1,0 +1,75 @@
+<!-- <div *ngIf="recipes.length > 0 && !loading" class="container-wrapper"> -->
+  <!-- <div class="container-fluid padding-20">
+    <div class="row">
+      <div class="col-12 col-md-4 col-lg-4" *ngFor="let r of recipes">
+        <mat-card>
+          <mat-card-title class="recipe-title">
+            {{r.title}}
+          </mat-card-title>
+          <mat-card-content>
+            <div class="fw mat-card-category">
+              <mat-icon>account_circle</mat-icon>{{r.category.name}}
+            </div>
+            <div class="fw mat-card-datetime">
+              <mat-icon>account_circle</mat-icon>{{r.author}}
+            </div>
+
+            <div class="fw mat-card-author">
+              <mat-icon>access_time</mat-icon>{{r.added | date: 'dd-MM-yyyy'}}
+            </div>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="container-fluid padding-20">
+    <table class="recipes-table" mat-table [dataSource]="recipes">
+      <ng-container matColumnDef="basicInfo">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let recipe">
+          <p class="recipe-title">
+            <a [routerLink]="['/przepisy', recipe.recipeId]">{{recipe.title}}</a>
+          </p>
+          <p class="recipe-category">{{recipe.category.name}}
+          </p>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="author_and_date">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let recipe">
+          <p class="recipe-ad">Dodane przez
+            <a class="recipe-author">{{recipe.author}}</a>
+          </p>
+          <p class="recipe-ad recipe-date">Dodano {{recipe.added | date: 'dd/MM/yyyy'}}</p>
+        </td>
+      </ng-container>
+      <tr mat-row *matRowDef="let row; let i = index; columns: columnsToDisplay" [ngClass]="{'even': i%2===1}"></tr>
+    </table>
+  </div>
+</div> -->
+
+<div *ngIf="recipes.length > 0 && !loading" class="container-fluid container-wrapper padding-20">
+
+    <div class="row">
+      <div class="col-12 col-md-6 col-xl-4" *ngFor="let recipe of recipes">
+        <mat-card>
+          <mat-card-title>
+              <p class="recipe-title">
+                  <a [routerLink]="['/przepisy', recipe.recipeId]">{{recipe.title}}</a>
+                </p>
+          </mat-card-title>
+          <mat-card-content>
+              <p class="recipe-category">Kategoria: <a>{{recipe.category.name}}</a>
+                </p>
+                <p class="recipe-ad recipe-date">Dodano: {{recipe.added | date: 'dd/MM/yyyy'}}</p>
+                <p class="recipe-author">Autor: <span>{{recipe.author}}</span></p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+</div>
+
+<div *ngIf="loading" class="fw-fh-c container-wrapper">
+  <mat-spinner></mat-spinner>
+</div>

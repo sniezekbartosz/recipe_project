@@ -1,0 +1,29 @@
+<div class="login-wrapper">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-4" style="    padding-bottom: 15px;">
+        <h3 class="h3-login-title">Zaloguj</h3>
+        <div *ngIf="error" class="alert alert-danger" role="alert">
+          {{msg}}
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+
+          <div class="form-group">
+            <input type="text" formControlName="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nazwa użytkownika">
+          </div>
+          <div class="form-group">
+            <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Hasło">
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Zapamiętaj mnie</label>
+          </div>
+          <button type="submit" class="btn btn-login-color btn-full-width login-button">Zaloguj</button>
+          <a class="u8-rem" style="color: rgb(1, 162, 255)">Zapomniałeś hasła?</a>
+          <p class="u8-rem" style="padding-top:2px;">Nie masz konta?</p>
+          <a [routerLink]="['/rejestracja']" class="btn btn-custom btn-full-width">Stwórz konto</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

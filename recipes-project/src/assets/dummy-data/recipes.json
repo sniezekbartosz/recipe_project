@@ -1,0 +1,32 @@
+[
+    {
+        "recipeId": 1,
+        "title": "jakis tytul",
+        "description": "jakis desc",
+        "author": "jakis author",
+        "added": "2017-12-12",
+        "ingredient": [],
+        "category": [
+            {
+                "categoryId": 1,
+                "name": "xD"
+            }
+        ]
+
+    },
+    {
+        "recipeId": 2,
+        "title": "jakis tytul",
+        "description": "jakis desc",
+        "author": "jakis author",
+        "added": "2017-12-12",
+        "ingredient": [],
+        "category": [
+            {
+                "categoryId": 1,
+                "name": "xD"
+            }
+        ]
+
+    }
+]

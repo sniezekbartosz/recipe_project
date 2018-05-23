@@ -1,0 +1,39 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav [opened]="!mobileQuery.matches" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+    class="sidenav">
+    <div class="btn-side-container">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </div>
+    <h3 *ngIf="logged; else notauth" class="welcome-logged">{{username}}</h3>
+    <ng-template #notauth>
+      <span style="text-align: text-center; width: 100%;">Użytkownik niezalogowany</span>
+    </ng-template>
+    <hr>
+    <!-- <h1>Przepisy
+      <span style="display: block;">Mamusi</span>
+    </h1> -->
+    <app-header></app-header>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+      <mat-toolbar color="primary" class="custom-toolbar-color">
+        <a (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </a>
+        <span class="example-app-name">Menu</span>
+        <!-- <button matIconButton (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button> -->
+        <!-- <a class="btn btn-primary" (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </a> -->
+      </mat-toolbar>
+      <!-- <div class="margin-navbar-wrapper"> -->
+      <router-outlet></router-outlet>
+      <!-- </div> -->
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

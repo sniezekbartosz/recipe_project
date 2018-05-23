@@ -1,0 +1,66 @@
+.recipe-wrapper {
+    padding: 20px;
+}
+
+.recipe-title {
+    font-size: 3rem;
+}
+
+.recipe-category {
+    font-size: 0.9rem;
+    padding-left: 20px;
+    color: rgb(190, 190, 190);
+
+    span {
+        color: olivedrab;
+    }
+
+}
+
+.recipe-ingredients {
+    font-size: 1.4rem;
+    padding: 20px;
+}
+
+.ingredient-list {
+
+    .ingredient-item {
+        border-left: 3px solid #ffa3a3;
+        margin: 10px;
+        padding-left: 10px;
+        list-style-type: none;
+        font-size: 1.2rem;
+    }
+
+}
+
+.recipe-desc {
+    font-size: 1.4rem;
+    border-bottom: 1px solid rgb(141, 44, 44);
+    padding: 20px;
+}
+
+.desc {
+    font-size: 1rem;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(141, 44, 44);
+    white-space: pre-wrap;
+}
+
+.recipe-added {
+    color: rgb(190, 190, 190);
+
+    span {
+        color: rgb(63, 58, 58);
+    }
+}
+
+.recipe-author {
+    color: rgb(190, 190, 190);
+
+    a {
+        color: rgb(87, 110, 210);
+        text-decoration: underline;
+    }
+}

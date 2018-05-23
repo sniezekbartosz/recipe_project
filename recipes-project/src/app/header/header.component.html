@@ -1,0 +1,61 @@
+<ul class="list-group sidenav-items">
+  <li class="list-group-item" [routerLinkActive]="['current']" [routerLinkActiveOptions]="{exact: true}">
+    <a [routerLink]="['']">
+      <i class="fas fa-home" style="color: #feffc4;"></i>Strona główna</a>
+  </li>
+  <li class="list-group-item" [routerLinkActive]="['current']" [routerLinkActiveOptions]="{exact: true}">
+    <a [routerLink]="['przepisy']">
+      <i class="fas fa-list-ul" style="color: #5a5252;"></i>Przepisy</a>
+  </li>
+  <hr>
+  <li class="list-group-item" [routerLinkActive]="['current']">
+    <a [routerLink]="['moje-przepisy']">
+      <i class="fas fa-book" style="color:#7b2323"></i>Moje przepisy</a>
+  </li>
+  <li class="list-group-item" [routerLinkActive]="['current']">
+    <a [routerLink]="['przepisy/nowy-przepis']">
+      <i class="far fa-plus-square" style="color: #219a21;"></i>Dodaj przepis</a>
+  </li>
+  <!-- <li class="list-group-item" [routerLinkActive]="['current']">
+    <a [routerLink]="['baza-przepisow']">
+      <i class="fas fa-database" style="color: #d4fdff;"></i>Pobierz bazę</a>
+  </li> -->
+  <li class="list-group-item" [routerLinkActive]="['current']">
+    <a [routerLink]="['pomoc']">
+      <i class="fas fa-question" style="color: #5c9bde;"></i>Pomoc</a>
+  </li>
+  <hr style="
+  border: 0;
+  width: 100%;
+  background-color: #0000001a;
+  height: 1px;">
+  <li *ngIf="!authenticated" class="list-group-item" [routerLinkActive]="['current']">
+    <a [routerLink]="['/logowanie']">
+      <i class="fas fa-sign-in-alt" style="color: #a6ffc3;"></i>Logowanie</a>
+  </li>
+  <li *ngIf="!authenticated" class="list-group-item" [routerLinkActive]="['current']">
+    <a [routerLink]="['/rejestracja']">
+      <i class="fas fa-user-plus" style="color: #ffffff"></i>Rejestracja</a>
+  </li>
+  <li *ngIf="authenticated" class="list-group-item">
+    <a (click)="logout()">
+        <i class="fas fa-sign-out-alt" style="color: #927b7b;"></i>Wyloguj</a>
+  </li>
+  <hr style="
+  border: 0;
+  width: 100%;
+  background-color: #0000001a;
+  height: 1px;">
+</ul>
+
+<ul class="list-group sidenav-items">
+  <li class="list-group-item">
+    <a class="aditional-info">Kontakt</a>
+  </li>
+  <li class="list-group-item">
+    <a class="aditional-info">Polityka prywatności</a>
+    </li>
+  <li class="list-group-item copyright">
+    <i class="far fa-copyright"></i> Bartosz Śnieżek 2018
+  </li>
+</ul>

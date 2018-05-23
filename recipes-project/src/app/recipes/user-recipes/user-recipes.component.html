@@ -1,0 +1,84 @@
+<div *ngIf="loading" class="fw-fh-c container-wrapper">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="recipes.length > 0 && !loading" class="container-fluid container-wrapper padding-20">
+
+  <div class="row">
+    <div class="col-12 col-md-6 col-xl-4" *ngFor="let recipe of recipes">
+      <mat-card>
+        <mat-card-title>
+          <p class="recipe-title">
+            <a [routerLink]="['/przepisy', recipe.recipeId]">{{recipe.title}}</a>
+          </p>
+        </mat-card-title>
+        <mat-card-content>
+          <p class="recipe-category">Kategoria:
+            <a>{{recipe.category.name}}</a>
+          </p>
+          <p class="recipe-ad recipe-date">Dodano: {{recipe.added | date: 'dd/MM/yyyy'}}</p>
+          <div class="recipe-options-pane">
+            <a class="btn btn-c btn-edit" [routerLink]="['edytuj', recipe.recipeId]">Edytuj</a>
+            <button class="btn btn-c btn-delete" (click)="onDelete(recipe.recipeId)">Usuń</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<!-- <table class="recipes-table" mat-table [dataSource]="recipes">
+    <ng-container matColumnDef="basicInfo">
+      <td mat-cell *matCellDef="let recipe">
+        <p class="recipe-title">
+          <a [routerLink]="['/przepisy', recipe.recipeId]">{{recipe.title}}</a>
+        </p>
+        <p class="recipe-category">{{recipe.category.name}}
+        </p>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="author_and_date">
+      <td mat-cell *matCellDef="let recipe">
+        <p class="recipe-ad">Dodane przez
+          <a class="recipe-author">{{recipe.author}}</a>
+        </p>
+        <p class="recipe-ad recipe-date">Dodano {{recipe.added | date: 'dd/MM/yyyy'}}</p>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="options">
+      <td mat-cell *matCellDef="let recipe">
+        <button class="btn btn-custom">Edytuj</button>
+        <button class="btn btn-custom">Usuń</button>
+      </td>
+    </ng-container>
+    <tr mat-row *matRowDef="let row; let i = index; columns: columns" [ngClass]="{'even': i%2==1}"></tr>
+  </table> -->
+
+<!-- <div class="row">
+    <div class="col-12 col-md-6 col-xl-4 recipe-tile" *ngFor="let recipe of recipes" style="height: 100%;">
+      <div class="full-width">
+        <p class="recipe-title">
+          <a [routerLink]="['/przepisy', recipe.recipeId]">{{recipe.title}}</a>
+        </p>
+        <p class="recipe-category">Kategoria {{recipe.category.name}}
+        </p>
+      </div>
+      <div class="full-width">
+        <p class="recipe-ad recipe-date">Dodano {{recipe.added | date: 'dd/MM/yyyy'}}</p>
+      </div>
+      <div class="full-width">
+        <button class="btn btn-c btn-edit">Edytuj</button>
+        <button class="btn btn-c btn-delete">Usuń</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div *ngIf="recipes.length == 0 && !loading" class="fw-fh-c">
+  <p class="msg-1">Aktualnie nie posiadasz żadnych przepisów :(</p>
+  <p class="msg-2">
+    <a [routerLink]="['/przepisy/nowy-przepis']" class="btn btn-custom">
+      Dodaj przepis teraz
+    </a>
+  </p>
+</div>
