@@ -28,16 +28,7 @@ export class RecipeService {
   }
 
   addRecipe(recipe: Recipe) {
-    this.http.post<Recipe>(url2, recipe).subscribe(
-      data => {
-        this.recipes.push(data);
-        this.recipeSubject.next(this.recipes);
-      },
-      error => {
-        //console.log(error);
-        //console.log(recipe);
-      }
-    );
+    return this.http.post<Recipe>(url2, recipe);
     // console.log(recipe);
     // this.recipes.push(recipe);
     // console.log(this.recipes);
@@ -45,14 +36,7 @@ export class RecipeService {
   }
 
   updateRecipe(recipe: Recipe) {
-    return this.http.put<Recipe>(url2 + '/' + recipe.recipeId, recipe).subscribe(
-      data => {
-        //console.log("update successfull");
-      },
-      error => {
-        //console.log(error);
-      }
-    );
+    return this.http.put<Recipe>(url2 + '/' + recipe.recipeId, recipe);
     // let index = this.recipes.findIndex(r => r.recipeId == recipe.recipeId);
     // this.recipes[index] = recipe;
     // this.recipeSubject.next(this.recipes.slice());

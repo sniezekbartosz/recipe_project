@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Ingredient } from '../../model/ingredient.model';
 import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 import { RecipeService } from '../../shared/recipe.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe, RecipeDTO } from '../../model/recipe.model';
 import { Category } from '../../model/category.model';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -28,7 +28,7 @@ export class EditRecipeComponent implements OnInit {
 
   categories: Category[] = [];
 
-  constructor(private recipeService: RecipeService, private route: ActivatedRoute, private token: TokenService) { }
+  constructor(private recipeService: RecipeService, private route: ActivatedRoute, private token: TokenService, private router: Router) { }
 
   // ngOnInit() {
   //   this.route.params.subscribe(
@@ -138,9 +138,17 @@ export class EditRecipeComponent implements OnInit {
   onSubmit() {
     if (this.recipeForm.valid) {
       if (this.editMode) {
-        this.recipeService.updateRecipe(this.recipeForm.value);
+        this.recipeService.updateRecipe(this.recipeForm.value).subscribe(
+          data => {
+            this.router.navigate(['/przepisy/' + data.recipeId]);
+          }
+        );
       } else {
-        this.recipeService.addRecipe(this.recipeForm.value);
+        this.recipeService.addRecipe(this.recipeForm.value).subscribe(
+          data => {
+            this.router.navigate(['/przepisy/' + data.recipeId]);
+          }
+        );
       }
     }
 

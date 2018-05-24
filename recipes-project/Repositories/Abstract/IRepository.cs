@@ -12,8 +12,8 @@ namespace recipes_project.Repositories.Abstract
         Task<TEntity> Get(int id);
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task<TEntity> GetByIdAsync(int id);
-        Task AddAsync(TEntity entity);
-        Task UpdateAsync(string user, TEntity entity);
+        Task<TEntity> AddAsync(TEntity entity);
+        Task<TEntity> UpdateAsync(string user, TEntity entity);
         Task DeleteAsync(string user, int id);
     }
 }

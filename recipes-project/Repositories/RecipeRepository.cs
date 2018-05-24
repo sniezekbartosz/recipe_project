@@ -34,10 +34,11 @@ namespace recipes_project.Repositories
             return recipes;
         }
 
-        public async Task AddAsync(Recipe entity)
+        public async Task<Recipe> AddAsync(Recipe entity)
         {
             await _context.Recipes.AddAsync(entity);
             await _context.SaveChangesAsync();
+            return entity;
         }
 
         public async Task DeleteAsync(string user, int id)
@@ -65,7 +66,7 @@ namespace recipes_project.Repositories
             return recipe;
         }
 
-        public async Task UpdateAsync(string user, Recipe entity)
+        public async Task<Recipe> UpdateAsync(string user, Recipe entity)
         {
             
 
@@ -115,9 +116,10 @@ namespace recipes_project.Repositories
 
                 }
                 _context.SaveChanges();
+                return recipe;
 
             }
-
+            return null;
             //if(recipe == null)
             //{
             //    throw new Exception($"Recipe with id {entity.RecipeId} does not exist");

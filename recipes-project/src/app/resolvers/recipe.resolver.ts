@@ -14,6 +14,6 @@ export class RecipeResolver implements Resolve<Recipe> {
         if (id !== null) {
             return this.recipeService.editRecipe(+id);
         }
-        return this.recipeService.editRecipe(0);
+        return this.recipeService.editRecipe(null);
     }
 }

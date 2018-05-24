@@ -40,8 +40,9 @@ namespace recipes_project.Controllers
       {
         return BadRequest(ModelState);
       }
-      await _recipeRepo.AddAsync(model);
-      return Ok(model.RecipeId);
+      var response = await _recipeRepo.AddAsync(model);
+
+      return Ok(_mapper.Map<RecipeDTO>(response));
     }
     [HttpGet]
     public async Task<IActionResult> Get()
@@ -75,8 +76,8 @@ namespace recipes_project.Controllers
       {
         return BadRequest(ModelState);
       }
-      await _recipeRepo.UpdateAsync(HttpContext.User.FindFirst(System.Security.Claims.ClaimTypes.Name).Value, model);
-      return Ok();
+      var response = await _recipeRepo.UpdateAsync(HttpContext.User.FindFirst(System.Security.Claims.ClaimTypes.Name).Value, model);
+      return Ok(_mapper.Map<RecipeDTO>(response));
     }
 
     [Authorize(AuthenticationSchemes = "Bearer")]
@@ -87,11 +88,12 @@ namespace recipes_project.Controllers
       return Ok();
     }
 
+    [Authorize(AuthenticationSchemes = "Bearer")]
     [HttpGet("EditRecipe/{recipeId?}")]
-    public async Task<IActionResult> EditRecipe(int? recipeId = 0)
+    public async Task<IActionResult> EditRecipe(int? recipeId)
     {
       var model = new EditRecipeViewModel();
-      if (recipeId != 0)
+      if (recipeId.HasValue)
       {
         try
         {
@@ -103,7 +105,7 @@ namespace recipes_project.Controllers
         }
         catch (Exception e)
         {
-          return BadRequest(ModelState);
+          return BadRequest(recipeId);
         }
       }
       var categories = await _categoryRepo.GetAllAsync();
