@@ -8,7 +8,7 @@
     </div>
     <h3 *ngIf="logged; else notauth" class="welcome-logged">{{username}}</h3>
     <ng-template #notauth>
-      <span style="text-align: text-center; width: 100%;">Użytkownik niezalogowany</span>
+      <span class="unauthorized">Użytkownik niezalogowany</span>
     </ng-template>
     <hr>
     <!-- <h1>Przepisy

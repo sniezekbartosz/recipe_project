@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { EditRecipe } from '../model/editrecipe.model';
 
 const url = '../dummy-data/recipes.json/';
-const url2 = 'api/recipes';
+const url2 = 'http://localhost:5000/api/recipes';
 
 @Injectable()
 export class RecipeService {

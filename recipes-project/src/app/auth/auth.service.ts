@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { UserService } from '../user/user.service';
 
-const login = 'api/auth/login';
-const register = 'api/accounts';
+const login = 'http://localhost:5000/api/auth/login';
+const register = 'http://localhost:5000/api/accounts';
 
 const AUTH_TOKEN = 'AuthToken';
 
